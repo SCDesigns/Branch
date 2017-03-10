@@ -1,2 +1,3 @@
 # branch-sinatra-app
-Sinatra Content Management System for Local Events - Branch
+
+Branch: Sinatra Content Management System for local events & meet-ups
