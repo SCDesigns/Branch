@@ -15,11 +15,11 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def logged_in?
-      !!session[:user_id]
+      !!current_user # Rather than evaluating the session_id, confirming the current user (in this case, using !! bolean) avoids any issues with invalid id's
     end
 
-    def current_user
-      User.find(session[:user_id])
+    def current_user # Instance variable @current_user will be set once then cached / returned in future cases using the ||=
+      @current_user ||= User.find(session[:id]) if session[:id]
     end
   end
 

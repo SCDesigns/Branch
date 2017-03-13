@@ -1,0 +1,12 @@
+<h3><%= @branch.event %>"></h3>
+<h4><%= @branch.organization %>"></h4>
+<h4><%= @branch.date %>"></h4>
+<h4><%= @branch.location %>"></h4>
+<p><%= @branch.info %>"></p>
+
+<form method="post" action="/branches/<%=@branch.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Branch">
+</form>
+
+<a href="/branches/<%=@branch.id%>/edit">Edit Branch </a>
