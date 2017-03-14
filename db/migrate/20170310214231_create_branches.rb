@@ -3,7 +3,7 @@ class CreateBranches < ActiveRecord::Migration
     create_table :branches do |t|
 		t.string :event
 		t.string :organization
-		t.string :date
+		t.date :date
 		t.string :location
 		t.string :info
      	t.integer :user_id

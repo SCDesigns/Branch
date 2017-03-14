@@ -1,6 +1,6 @@
 class BranchesController < ApplicationController
 
-  get '/branch/new' do # displays 'create Branch' form
+  get '/branches/new' do # displays 'create Branch' form
     if logged_in?
       erb :'branches/create_branch'
     else
@@ -12,14 +12,9 @@ class BranchesController < ApplicationController
     if params[:content] == "" # checks submission for content
       redirect to '/branches/new' # if none found redirects user to new Branch form
     else
-      @branch = current_user.branches.create(
-        event: params[:event],
-        organization: params[:organization],  
-        date: params[:date], 
-        location: params[:location], 
-        info: params[:info], 
-        :user_id => user.id)
-      redirect to "/branches/#{branch.id}"
+      user = User.find_by_id(session[:user_id])
+      @branch = Branch.new(:event => params[:event], :organization => params[:organization], :date => params[:date], :location  => params[:location], :info  => params[:info], :user_id  => user.id)
+      redirect to "/branches"
    end
   end
 
