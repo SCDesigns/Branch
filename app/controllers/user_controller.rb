@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get '/signup' do # displays user signup form
     if logged_in?
-     redirect to "/branches"
+     redirect "/branches"
    else
      erb :'users/create_user', locals: {message: "Please create an account below."}
    end
@@ -33,7 +33,7 @@ post '/login' do # submits login and establishes session_id
     session[:user_id] = user.id
     redirect "/branches"
   else
-    redirect to "/signup"
+    redirect "/signup"
   end
 end
 
@@ -45,9 +45,9 @@ get '/users/:slug' do
 get '/logout' do # logs out user / clears session hash
   if session[:user_id] != nil
     session.destroy
-    redirect to '/login'
+    redirect '/login'
   else
-    redirect to '/'
+    redirect '/'
   end
 end
 
