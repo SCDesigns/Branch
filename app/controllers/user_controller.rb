@@ -2,21 +2,20 @@ class UsersController < ApplicationController
 
   get '/signup' do # displays user signup form
     if logged_in?
-     redirect to '/branches'
+     redirect to "/branches"
    else
      erb :'users/create_user', locals: {message: "Please create an account below."}
    end
   end
 
-  post '/signup' do # submits user signup form to database
-    #include validates presences of below vvv
+ post '/signup' do # submits user signup form to database
     if params[:username] == "" || params[:email] == "" || params[:password] == "" #if submitted values are blank direct user back to signup page
       redirect to '/signup'
     else
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       @user.save
       session[:user_id] = @user.id
-      redirect '/branches'
+      redirect "/branches"
     end
   end
 
@@ -24,7 +23,7 @@ class UsersController < ApplicationController
   if !session[:user_id]
     erb :'users/login'
   else
-    redirect '/branches'
+    redirect "/branches"
   end
 end
 
@@ -32,9 +31,9 @@ post '/login' do # submits login and establishes session_id
   user = User.find_by(:username => params[:username])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    redirect '/branches'
+    redirect "/branches"
   else
-    redirect to '/signup'
+    redirect to "/signup"
   end
 end
 

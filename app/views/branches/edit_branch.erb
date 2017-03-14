@@ -2,7 +2,7 @@
 
 <form method="post" action="/branches/<%=@branch.id%>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-	<h4>What: <input type="text" name="event" value="<%= @branch.event %>"></h4>
+	<h3>What: <input type="text" name="event" value="<%= @branch.event %>"></h3>
 	<h4>Who: <input type="text" name="organization" value="<%= @branch.organization %>"></h4>
 	<h4>When: <input type="text" name="date" value="<%= @branch.date %>"></h4>
     <h4>Where: <input type="text" name="location" value="<%= @branch.location %>"></h4>

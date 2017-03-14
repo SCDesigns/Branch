@@ -40,23 +40,36 @@ class BranchesController < ApplicationController
     end
     end
 
-  get '/branches/:id/edit' do # load Branch edit form
+  get '/branches/:id/edit' do # load branch edit form
     if logged_in?
-      branch = current_user.branches.find_by(id: params[:id])
-      erb :'branches/edit_branch'
+      @branch = Branch.find_by_id(params[:id])
+        if @branch.user_id == current_user.id # ensures the branch to be edited belongs to the current_user
+          erb :'branches/edit_branch'
+        else
+          redirect to '/branches'
+        end
     else
       redirect to '/login'
     end
   end
 
-  patch '/branches/:id' do # updates Branch in database
-    validates_presence_of :event, :organization, :date, :location, :info
-      redirect to "/branches/#{params[:id]}/edit" # if none found redirects user to edit form form for particular Branch
-    #else
-    #branch = Branch.find_by_id(params[:id])
-    #branch.content = params[:content]
-    #branch.save
-    #redirect to "/branches/#{branch.id}"
+  patch '/branches/:id' do # updates branch in database
+    if params[:content] == "" # checks submission for content
+      redirect to "/branches/#{params[:id]}/edit" # if none found redirects user to edit form form for particular branch
+    else
+      @branch = Branch.find_by_id(params[:id])
+      if @branch.user_id == current_user.id
+        @branch.event = params[:event]
+        @branch.organization = params[:organization]
+        @branch.date = params[:date]
+        @branch.location = params[:location]
+        @branch.info = params[:info]
+        @branch.save
+        redirect to "/branches/#{@branch.id}"
+      else
+        redirect to '/branches/:id/edit'
+      end
+    end
   end
 
     delete '/branches/:id/delete' do  # form to delete a Branch (no fields / submit bttn)
