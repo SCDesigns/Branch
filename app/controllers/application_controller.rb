@@ -12,14 +12,14 @@ class ApplicationController < Sinatra::Base
   get '/' do
       erb :index
   end
-
-  helpers do
+  
+ helpers do
     def logged_in?
-      !!current_user # Rather than evaluating the session_id, confirming the current user (in this case, using !! bolean) avoids any issues with invalid id's
+      !!session[:user_id]
     end
 
     def current_user
-      @current_user ||= User.find(session[:user_id])
+      User.find(session[:user_id])
     end
   end
 

@@ -29,6 +29,7 @@ class BranchesController < ApplicationController
 
   get '/branches/:id' do # shows specific branch 
     if logged_in?
+      @branch = Branch.find_by_id(params[:id])
       erb :'branches/show_branch'
     else
       redirect to '/login'
@@ -37,7 +38,7 @@ class BranchesController < ApplicationController
 
   get '/branches/:id/edit' do # load branch edit form
     if logged_in?
-      @branch = Branch.find_by_id(params[:id])
+      @branch = Branch.find_by(params[:id])
         if @branch.user_id == current_user.id # ensures the branch to be edited belongs to the current_user
           erb :'branches/edit_branch'
         else

@@ -3,7 +3,7 @@
 
 <% @branches.each do |branch| %>
   <div>
-    <h4><b><%= branch.event %></b></h4>
+    <h4><b><a href="/branches/<%=branch.id%>"><%= branch.id %> - <%= branch.event %></b></h4></a>
     <h5><%= branch.organization %><br>
     <%= branch.date %><br>
     <%= branch.location %><br>
