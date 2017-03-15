@@ -7,9 +7,9 @@
 	1. Clone the repository 
 	2. Run `rake db:migrate`
 	3. Run `shotgun`
-	4. Open the given address in your browser and continue as you wish.
+	4. Open the given address in your browser and continue as you wish
 
-<p data-visibility='hidden'>View <a href='https://github.com/SCDesigns/branch-sinatra-app' title='Branch'>Branch</a> on Github.</p>
+<p data-visibility='hidden'>View <a href='https://github.com/SCDesigns/branch-sinatra-app' title='Branch'>Branch</a> on Github</p>
 
 ## Contributing
 

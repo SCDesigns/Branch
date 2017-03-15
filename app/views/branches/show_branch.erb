@@ -1,12 +1,15 @@
+<div style="background-color: #fff; width: 60vw; padding: 1em 7.5em; border-radius: 1.25em">
 <h3><%= @branch.event %></h3>
 <h4><%= @branch.organization %></h4>
 <h4><%= @branch.date %></h4>
 <h4><%= @branch.location %></h4>
 <p><%= @branch.info %></p>
 
+<br>
 <form method="post" action="/branches/<%=@branch.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Branch">
+  <input type="button" class="btn btn-danger" value="Delete Branch">
 </form>
-
-<a href="/branches/<%=@branch.id%>/edit">Edit Branch </a>
+<br>
+<a href="/branches/<%=@branch.id%>/edit"><button type="button" class="btn btn-warning">Edit Branch </a></button>
+</div>

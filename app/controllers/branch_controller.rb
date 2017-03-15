@@ -1,4 +1,6 @@
 class BranchesController < ApplicationController
+  require 'rack-flash'
+  use Rack::Flash
 
   get '/branches/new' do # displays 'create Branch' form
     if logged_in?
@@ -42,7 +44,8 @@ class BranchesController < ApplicationController
         if @branch.user_id == current_user.id # ensures the branch to be edited belongs to the current_user
           erb :'branches/edit_branch'
         else
-          redirect to "/branches", locals: {message: "You can't edit a Branch that isn't yours!"}
+          redirect to "/branches"
+          flash[:message] = "You can't edit a Branch that isn't yours!"
         end
     else
       redirect to "/login"
@@ -74,7 +77,8 @@ class BranchesController < ApplicationController
       if branch && branch.destroy
         redirect "/branches"
       else
-        redirect "/branches", locals: {message: "You can't delete a Branch that isn't yours!"}
+        redirect "/branches"
+        flash[:message] = "You can't delete a Branch that isn't yours!"
       end
       else
         redirect to "/login"
