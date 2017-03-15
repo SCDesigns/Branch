@@ -42,10 +42,10 @@ class BranchesController < ApplicationController
         if @branch.user_id == current_user.id # ensures the branch to be edited belongs to the current_user
           erb :'branches/edit_branch'
         else
-          redirect to '/branches'
+          redirect to "/branches", locals: {message: "You can't edit a Branch that isn't yours!"}
         end
     else
-      redirect to '/login'
+      redirect to "/login"
     end
   end
 
@@ -63,7 +63,7 @@ class BranchesController < ApplicationController
         @branch.save
         redirect to "/branches/#{@branch.id}"
       else
-        redirect to '/branches/:id/edit'
+        redirect to "/branches/:id/edit"
       end
     end
   end
@@ -74,10 +74,10 @@ class BranchesController < ApplicationController
       if branch && branch.destroy
         redirect "/branches"
       else
-        redirect "/branches/#{branch.id}"
+        redirect "/branches", locals: {message: "You can't delete a Branch that isn't yours!"}
       end
       else
-        redirect to '/login'
+        redirect to "/login"
       end
     end
 end

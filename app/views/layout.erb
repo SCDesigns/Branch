@@ -3,24 +3,25 @@
   <head>
     <title>Branch</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
   </head>
-  <body><center>
-		<div class="container">
+  <body style="background-color: #A5D6A7"><center>
+		<div style="background-color: #fff; width: 60vw; border-radius: 1.25em">
 		<%= yield %>
 		<% if logged_in? %>
-
+     <br>
         <a href="/branches/new"> Create New Branch </a>
         <a href="/logout"> Log Out </a>
+      <br><br>
         <p style="text-transform: capitalize;"> Logged In As: <%=current_user.username %></p>
 
       <% else %>
+      <br>
         <a href="/signup">Sign Up</a>
         <a href="/login"> Sign In </a>
       <%end %>
   </center>
-
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>

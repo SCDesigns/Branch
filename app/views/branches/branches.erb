@@ -1,5 +1,8 @@
+<div style="background-color: #fff; width: 60vw; padding: 1em 7.5em">
 <h1 style="text-transform: capitalize;"> Welcome <%= current_user.username %>! </h1>
-<h2> Branches </h2>
+<h2>- - -</h2>
+<h2 style="color: #2E7D32"> Local Branches </h2>
+<br>
 
 <% @branches.each do |branch| %>
   <div>
@@ -11,3 +14,4 @@
   </div>
   <br>
 <% end %>
+</div>
