@@ -6,7 +6,10 @@
   </head>
   <body style="background-color: #A5D6A7"><center>
 		<div style="background-color: #fff; width: 60vw; border-radius: 1.25em">
-		<%= yield %>
+		<% if flash.has?(:message) %>
+        <%= flash[:message] %>
+      <% end %> <br>
+        <%= yield %>
 		<% if logged_in? %>
      <br>
         <a href="/branches/new"> Create New Branch </a>

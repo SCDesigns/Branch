@@ -1,7 +1,4 @@
 class BranchesController < ApplicationController
-  require 'rack-flash'
-  use Rack::Flash
-
   get '/branches/new' do # displays 'create Branch' form
     if logged_in?
       erb :'branches/create_branch'
@@ -16,6 +13,7 @@ class BranchesController < ApplicationController
     else
       user = User.find_by_id(session[:user_id])
       @branch = Branch.new(:event => params[:event], :organization => params[:organization], :date => params[:date], :location  => params[:location], :info  => params[:info], :user_id  => user.id)
+      @branch.save
       redirect to "/branches"
    end
   end
@@ -40,12 +38,12 @@ class BranchesController < ApplicationController
 
   get '/branches/:id/edit' do # load branch edit form
     if logged_in?
-      @branch = Branch.find_by(params[:id])
+      @branch = Branch.find_by_id(params[:id])
         if @branch.user_id == current_user.id # ensures the branch to be edited belongs to the current_user
           erb :'branches/edit_branch'
         else
-          redirect to "/branches"
           flash[:message] = "You can't edit a Branch that isn't yours!"
+          redirect to "/branches"
         end
     else
       redirect to "/login"
@@ -77,8 +75,8 @@ class BranchesController < ApplicationController
       if branch && branch.destroy
         redirect "/branches"
       else
-        redirect "/branches"
         flash[:message] = "You can't delete a Branch that isn't yours!"
+        redirect "/branches"
       end
       else
         redirect to "/login"

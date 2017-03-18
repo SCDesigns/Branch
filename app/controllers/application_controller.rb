@@ -7,6 +7,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "branch_secret"
+    use Rack::Flash, :sweep => true
   end
 
   get '/' do
@@ -19,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      User.find(session[:user_id])
+      @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
   end
 
