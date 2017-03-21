@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   extend Slugifiable::ClassMethods
   include Slugifiable::InstanceMethods
   has_many :branches
-  validates_presence_of :username, :password, :email
+
   has_secure_password
+  validates :username, :email, presence: true, uniqueness: true
+ 
 end

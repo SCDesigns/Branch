@@ -6,9 +6,11 @@
 <p><%= @branch.info %></p>
 
 <br>
-<form method="post" action="/branches/<%=@branch.id%>/delete">
-  <button id="hidden" class="btn btn-danger" type="hidden" name="_method" value="DELETE">Delete Branch</button>
-</form>
-<br>
-<a href="/branches/<%=@branch.id%>/edit"><button type="button" class="btn btn-warning">Edit Branch</a></button>
+	<% if @branch.user == current_user %> 
+		<form method="post" action="/branches/<%=@branch.id%>/delete">
+		  <button id="hidden" class="btn btn-danger" type="hidden" name="_method" value="DELETE">Delete Branch</button>
+		</form>
+		<br>
+		<a href="/branches/<%=@branch.id%>/edit"><button type="button" class="btn btn-warning">Edit Branch</a></button>
+	<% end %>
 </div>
