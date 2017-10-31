@@ -18,10 +18,11 @@
           <%= yield %>
   		<% if logged_in? %>
        <br>
-          <a href="/branches/new"> Create New Branch </a>
-          <a href="/logout"> Log Out </a>
+          <a href="/branches/new"><input class="btn btn-primary" type="submit" value="Create New Branch"></a>
+          <a href="/branches"><input class="btn btn-primary" type="submit" value="View Branches"></a>
+          <a href="/logout"><input class="btn btn-danger" type="submit" value="Log Out"></a>
         <br><br>
-          <p style="text-transform: capitalize;"> Logged In As: <%=current_user.username %></p>
+          <p style="text-transform: capitalize;"> Logged In As: <strong><%=current_user.username %></strong></p>
 
         <% else %>
         <br>

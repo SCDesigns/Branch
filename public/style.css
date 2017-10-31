@@ -8,16 +8,40 @@ body {
   text-align: justify;
   text-align-last: center;
 }
+.branch {
+  padding: 40px;
+  text-align: center;
+  border-bottom: 5px solid #F5F5F5;
+}
+.bullet {
+  margin: 20px auto;
+}
 .container {
   background-color: #fff;
   width: 60vw;
   box-shadow: 0 5px 30px rgba(156, 160, 171, 0.50);
+}
+.details {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.details h6 {
+  font-size: 2rem;
+  text-align: left;
+  line-height: calc(0.5vw + 15px);
 }
 h1 {
   margin: 10px auto;
   text-align: justify;
   text-align-last: center;
   font-weight: 700
+}
+h4 {
+  margin: 10px auto;
+  text-align: justify;
+  text-align-last: center;
+  font-weight: 700
+  color: #00C06E;
 }
 .content {
   padding: 40px 0;
@@ -28,9 +52,17 @@ h1 {
   background-image: linear-gradient(100deg, #00987E, #00C06E);
 }
 .btn {
-  background-color: #00987E;
   border: none;
   box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+  color: #fff;
+  margin: auto 10px;
+}
+.btn-primary {
+  background-color: #00987E;
+}
+.btn-danger {
+  background-color: #fff;
+  color: #BDBDBD;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -39,5 +71,12 @@ h1 {
 .open>.dropdown-toggle.btn-primary {
   background-color: #00C06E;
   transform: translateY(-1px);
-  box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger:active,
+.btn-danger.active,
+.open>.dropdown-toggle.btn-primary {
+  background-color: #f44336;
+  transform: translateY(-1px);
 }

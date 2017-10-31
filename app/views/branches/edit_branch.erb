@@ -1,13 +1,17 @@
-<div style="background-color: #fff; width: 60vw; padding: 1em 7.5em; border-radius: 1.25em">
-<h2> Edit Branch </h2>
+<head>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
 
-<form method="post" action="/branches/<%=@branch.id%>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-	<h3>What: <input type="text" name="event" value="<%= @branch.event %>"></h3>
-	<h4>Who: <input type="text" name="organization" value="<%= @branch.organization %>"></h4>
-	<h4>When: <input type="text" name="date" value="<%= @branch.date %>"></h4>
+<div class="content">
+  <h1> Edit Branch </h1>
+
+  <form method="post" action="/branches/<%=@branch.id%>">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+  	<h3>What: <input type="text" name="event" value="<%= @branch.event %>"></h3>
+  	<h4>Who: <input type="text" name="organization" value="<%= @branch.organization %>"></h4>
+  	<h4>When: <input type="text" name="date" value="<%= @branch.date %>"></h4>
     <h4>Where: <input type="text" name="location" value="<%= @branch.location %>"></h4>
     <p>Why: <input type="text" name="info" value="<%= @branch.info %>"></p>
-  <input type="submit" value="submit">
-</form>
+    <input type="submit" value="submit">
+  </form>
 </div>

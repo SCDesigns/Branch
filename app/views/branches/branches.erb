@@ -1,17 +1,25 @@
-<div style="background-color: #fff; width: 60vw; padding: 1em 7.5em">
-<h1 style="text-transform: capitalize;"> Welcome <%= current_user.username %>! </h1>
-<h2>- - -</h2>
-<h2 style="color: #2E7D32"> Local Branches </h2>
-<br>
+<head>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
 
-<% @branches.each do |branch| %>
+<div>
   <div>
-    <h4><b><a href="/branches/<%=branch.id%>"><%= branch.id %> - <%= branch.event %></b></h4></a>
-    <h5><%= branch.organization %><br>
-    <%= branch.date %><br>
-    <%= branch.location %><br>
-    <%= branch.info %></h5>
+    <h1 style="text-transform: capitalize;"> Welcome <%= current_user.username %>! </h1>
+    <div class="partition"></div>
+    <h2> Local Branches </h2>
+    <br>
+
+    <% @branches.each do |branch| %>
+      <div class="branch">
+        <h4><a href="/branches/<%=branch.id%>"><%= branch.id %> - <%= branch.event %></h4></a>
+        <div class="details">
+          <h6 class="bullet"><%= branch.organization %><br></h6>
+          <h6 class="bullet"><%= branch.date %><br></h6>
+          <h6 class="bullet"><%= branch.location %><br></h6>
+          <h6 class="bullet"><%= branch.info %></h6>
+        </div>
+      </div>
+      <br>
+    <% end %>
   </div>
-  <br>
-<% end %>
 </div>
