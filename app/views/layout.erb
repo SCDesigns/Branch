@@ -1,28 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Branch</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,700" rel="stylesheet">
   </head>
-  <body style="background-color: #A5D6A7"><center>
-		<div style="background-color: #fff; width: 60vw; border-radius: 1.25em">
-		<% if flash.has?(:message) %>
-        <%= flash[:message] %>
-      <% end %> <br>
-        <%= yield %>
-		<% if logged_in? %>
-     <br>
-        <a href="/branches/new"> Create New Branch </a>
-        <a href="/logout"> Log Out </a>
-      <br><br>
-        <p style="text-transform: capitalize;"> Logged In As: <%=current_user.username %></p>
+  <body>
+    <center>
+		<div class="container">
+      <div class="content">
+  		<% if flash.has?(:message) %>
+          <%= flash[:message] %>
+        <% end %> <br>
+          <%= yield %>
+  		<% if logged_in? %>
+       <br>
+          <a href="/branches/new"> Create New Branch </a>
+          <a href="/logout"> Log Out </a>
+        <br><br>
+          <p style="text-transform: capitalize;"> Logged In As: <%=current_user.username %></p>
 
-      <% else %>
-      <br>
-        <a href="/signup">Sign Up</a>
-        <a href="/login"> Sign In </a>
-      <%end %>
-  </center>
+        <% else %>
+        <br>
+          <a href="/signup">Sign Up</a>
+          <a href="/login"> Sign In </a>
+        <% end %>
+      </div>
+    </center>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

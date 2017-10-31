@@ -9,12 +9,12 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do # submits user signup form to database
-    
-    @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+
+    @user = User.new(:email => params[:email], :username => params[:username], :password => params[:password])
     if @user.save
       session[:user_id] = @user.id
       redirect "/branches"
-    else 
+    else
       flash[:message] = @user.errors.full_messages.join(", ")
       redirect to '/signup'
     end

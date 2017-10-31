@@ -3,17 +3,17 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
 
   configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
     enable :sessions
+    set :views, 'app/views'
+    set :public_folder, 'public'
     set :session_secret, "branch_secret"
     use Rack::Flash, :sweep => true
   end
 
   get '/' do
-      erb :index
+    erb :index
   end
-  
+
  helpers do
     def logged_in?
       !!current_user

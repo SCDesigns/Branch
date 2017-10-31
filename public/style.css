@@ -1,0 +1,43 @@
+body {
+  background-color: #00987E;
+  background-image: linear-gradient(100deg, #00987E, #00C06E);
+  font-family: 'Lato', sans-serif;
+}
+.banner {
+  margin: 10px auto;
+  text-align: justify;
+  text-align-last: center;
+}
+.container {
+  background-color: #fff;
+  width: 60vw;
+  box-shadow: 0 5px 30px rgba(156, 160, 171, 0.50);
+}
+h1 {
+  margin: 10px auto;
+  text-align: justify;
+  text-align-last: center;
+  font-weight: 700
+}
+.content {
+  padding: 40px 0;
+}
+.partition {
+  height: 5px;
+  width: 200px;
+  background-image: linear-gradient(100deg, #00987E, #00C06E);
+}
+.btn {
+  background-color: #00987E;
+  border: none;
+  box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+  background-color: #00C06E;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}

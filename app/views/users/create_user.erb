@@ -1,14 +1,21 @@
-<h2>Create Account</h2>
-
 <% unless locals.empty? %>
   <%= message %>
 <% end %>
 
+<head>
+  <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
+</head>
 
-<h3>Sign Up</h3>
+<h1>Sign Up </br> for Branch!</h1>
+<div class="partition"></div>
+<br>
 <form action="/signup" method="POST">
-  <p>Name: <input required type="text" name="username"></p>
-  <p>Email: <input required type="email" name="email"></p>
-  <p>Password: <input required type="password" name="password"></p>
-  <input class="btn btn-primary" type="submit">
+  Email: <input type="text" name="email">
+<br><br>
+  Username: <input required type="text" name="username">
+<br><br>
+  Password: <input type="password" name="password">
+<br><br>
+  <input class="btn btn-primary" type="submit" value="Submit">
+
 </form>
