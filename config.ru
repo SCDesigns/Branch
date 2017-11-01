@@ -1,5 +1,4 @@
 require './config/database'
-require './config/environment'
 require './app'
 
 if ActiveRecord::Migrator.needs_migration?
