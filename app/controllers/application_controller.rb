@@ -5,11 +5,10 @@ require 'sinatra/activerecord'
 class ApplicationController < Sinatra::Base
 
   configure do
-    enable :sessions
     set :views, 'app/views'
     set :public_folder, 'public'
+    enable :sessions
     set :session_secret, "branch_secret"
-    use Rack::Flash, :sweep => true
   end
 
   get '/' do
