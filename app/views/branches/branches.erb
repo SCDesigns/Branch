@@ -11,12 +11,12 @@
 
     <% @branches.each do |branch| %>
       <div class="branch">
-        <h4><a href="/branches/<%=branch.id%>"><%= branch.id %> - <%= branch.event %></h4></a>
+        <h3><a href="/branches/<%=branch.id%>"><%= branch.id %> - <%= branch.event %></h3></a>
         <div class="details">
-          <h6 class="bullet"><%= branch.organization %><br></h6>
-          <h6 class="bullet"><%= branch.date %><br></h6>
-          <h6 class="bullet"><%= branch.location %><br></h6>
-          <h6 class="bullet"><%= branch.info %></h6>
+          <h6 class="bullet"><li><%= branch.organization %></li><br></h6>
+          <h6 class="bullet"><li><%= branch.date %></li><br></h6>
+          <h6 class="bullet"><li><%= branch.location %></li><br></h6>
+          <h6 class="bullet"><li><%= branch.info %></li></h6>
         </div>
       </div>
       <br>

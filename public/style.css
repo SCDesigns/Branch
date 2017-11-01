@@ -36,11 +36,10 @@ h1 {
   text-align-last: center;
   font-weight: 700
 }
-h4 {
+h3 {
   margin: 10px auto;
   text-align: justify;
   text-align-last: center;
-  font-weight: 700
   color: #00C06E;
 }
 .content {
@@ -77,6 +76,6 @@ h4 {
 .btn-danger:active,
 .btn-danger.active,
 .open>.dropdown-toggle.btn-primary {
-  background-color: #f44336;
+  background-color: #ef5350;
   transform: translateY(-1px);
 }
