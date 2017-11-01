@@ -5,8 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use BranchesController
 use UsersController
-use ParentsController
-use HousesController
-use ChildrenController
 run ApplicationController
