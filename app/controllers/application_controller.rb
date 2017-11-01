@@ -1,6 +1,7 @@
 require './config/environment'
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -9,6 +10,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     enable :sessions
     set :session_secret, "branch_secret"
+    use Rack::Flash, :sweep => true
   end
 
   get '/' do
