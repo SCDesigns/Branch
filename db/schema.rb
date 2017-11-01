@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20170310214231) do
 
   create_table "branches", force: :cascade do |t|
-    t.string  "event"
-    t.string  "organization"
-    t.string  "date"
-    t.string  "location"
-    t.string  "info"
+    t.string "event"
+    t.string "organization"
+    t.string "date"
+    t.string "location"
+    t.string "info"
     t.integer "user_id"
   end
 
