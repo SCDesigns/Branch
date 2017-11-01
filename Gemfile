@@ -11,12 +11,12 @@ gem 'pry'
 gem 'bcrypt'
 gem 'rack-flash3'
 
-group :development do
+group :development, :test do
  gem 'sqlite3'
  gem "tux"
 end
 
-group :production do
+group :production, :staging do
  gem 'pg'
 end
 

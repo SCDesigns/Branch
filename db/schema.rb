@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20170310214231) do
 
-  create_table "branches", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "branches", id: :serial, force: :cascade do |t|
     t.string "event"
     t.string "organization"
     t.string "date"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170310214231) do
     t.integer "user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
